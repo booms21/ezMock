@@ -3,19 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ezMock Demo</title>
+    <title>ezzMock Demo</title>
   </head>
   <body>
-    <h1>ezMock Demo</h1>
+    <h1>ezzMock Demo</h1>
     <button id="mockButton">Run Mock</button>
     <button id="pollingButton">Run Polling</button>
     <pre id="output"></pre>
 
-    <!-- 引入 ezMock 库 -->
-    <script src="./dist/ezMock.min.js"></script>
+    <!-- 引入 ezzMock 库 -->
+    <script src="./dist/ezzMock.min.js"></script>
     <script>
       document.getElementById("mockButton").addEventListener("click", () => {
-        window.ezMock
+        window.ezzMock
           .Mock({
             isRadomStatus: true,
             onlyReject: false,
@@ -31,7 +31,7 @@
             ],
           })
           .then((response) => {
-            // 使用 window.ezMock
+            // 使用 window.ezzMock
             document.getElementById("output").textContent = JSON.stringify(
               response,
               null,
@@ -50,10 +50,10 @@
             id: 123123,
           },
         };
-        window.ezMock
+        window.ezzMock
           .Polling(pollingConfig)
           .then((response) => {
-            // 使用 window.ezMock
+            // 使用 window.ezzMock
             document.getElementById("output").textContent = JSON.stringify(
               response,
               null,

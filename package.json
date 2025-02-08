@@ -1,9 +1,9 @@
 {
-  "name": "ezmock",
+  "name": "ezzmock",
   "version": "1.0.0",
   "description": "A TypeScript library for mocking data with random responses.",
-  "main": "dist/ezMock.min.js",
-  "types": "dist/ezMock.d.ts",
+  "main": "dist/ezzMock.min.js",
+  "types": "dist/ezzMock.d.ts",
   "scripts": {
     "build": "rollup -c",
     "prepare": "npm run build"

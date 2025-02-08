@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /**
- * @module ezMock
+ * @module ezzMock
  *
  * @author Naje Szl
  */
@@ -38,7 +38,7 @@ class MockInstance implements IMockInstance {
       ...config,
       isRadomObjectArray: config?.maxObjectArraySize ? false : true,
     };
-    this.config.log && console.log("ezMock - config:", this.config);
+    this.config.log && console.log("ezzMock - config:", this.config);
     const radomTime = Math.ceil(Math.random() * this.config.maxRadomTime!);
     const responseData: {
       code: string;
@@ -69,23 +69,23 @@ class MockInstance implements IMockInstance {
       const timer = setTimeout(() => {
         clearTimeout(timer); // 清除计时器
         if (this.config.onlyReject) {
-          return reject(new Error("ezMock - network error! so run reject"));
+          return reject(new Error("ezzMock - network error! so run reject"));
         }
         if (this.config.isRadomStatus) {
           const isResolve = Math.random() > 0.4;
           if (isResolve) {
-            this.config.log && console.log("ezMock - responseData", responseData);
+            this.config.log && console.log("ezzMock - responseData", responseData);
             resolve(responseData);
           } else {
-            reject(new Error("ezMock - network error! so run reject"));
+            reject(new Error("ezzMock - network error! so run reject"));
           }
         } else {
-          this.config.log && console.log("ezMock - responseData ", responseData);
+          this.config.log && console.log("ezzMock - responseData ", responseData);
           resolve(responseData);
         }
       }, (this.config.delayTime ?? radomTime) * 1000);
 
-      this.config.log && console.log("ezMock - delay ", this.config.delayTime ?? radomTime);
+      this.config.log && console.log("ezzMock - delay ", this.config.delayTime ?? radomTime);
     });
   }
   config: IMockInstance["config"] & {isRadomObjectArray: boolean};
@@ -94,7 +94,7 @@ class MockInstance implements IMockInstance {
 }
 
 /**
- * 创建一个ezMock的实例
+ * 创建一个ezzMock的实例
  * 
  * 此函数的目的是封装MockInstance的创建过程，并提供一个简单的接口来获取模拟数据
  * 它允许用户通过传递配置参数来定制MockInstance的行为
@@ -164,7 +164,7 @@ const Polling = function (config: IPollingConfig) {
 };
 
 if (typeof window !== "undefined") {
-  (window as any).ezMock = {
+  (window as any).ezzMock = {
     Mock,
     Polling,
   };

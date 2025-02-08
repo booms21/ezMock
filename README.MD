@@ -1,34 +1,34 @@
-# ezMock 使用文档
+# ezzMock 使用文档
 
 ## 简介
 
-`ezMock` 是一个基于 TypeScript 的数据模拟库，旨在为开发者提供灵活且易于使用的接口来生成随机的模拟数据。它支持多种数据类型（如字符串、数字、布尔值、对象、数组等），并允许用户通过配置自定义模拟数据的行为。此外，`ezMock` 还提供了轮询功能，用于模拟异步请求。
+`ezzMock` 是一个基于 TypeScript 的数据模拟库，旨在为开发者提供灵活且易于使用的接口来生成随机的模拟数据。它支持多种数据类型（如字符串、数字、布尔值、对象、数组等），并允许用户通过配置自定义模拟数据的行为。此外，`ezzMock` 还提供了轮询功能，用于模拟异步请求。
 
 ## 安装
 
 ### 使用 npm 安装
 
 ```bash
-npm install ezmock
+npm install ezzMock
 ```
 
 ### 直接引入脚本文件
 
-你也可以直接在 HTML 文件中引入编译后的 `ezMock.min.js` 文件：
+你也可以直接在 HTML 文件中引入编译后的 `ezzMock.min.js` 文件：
 
 ```html
-<script src="./dist/ezMock.min.js"></script>
+<script src="./dist/ezzMock.min.js"></script>
 ```
 
 ## 快速开始
 
 ### 创建模拟数据
 
-你可以通过调用 `ezMock.Mock(config)` 方法来创建模拟数据。`config` 参数是一个可选的对象，用于配置模拟数据的行为。以下是一个简单的例子：
+你可以通过调用 `ezzMock.Mock(config)` 方法来创建模拟数据。`config` 参数是一个可选的对象，用于配置模拟数据的行为。以下是一个简单的例子：
 
 ```javascript
-// 引入 ezMock 库
-import { Mock } from "ezmock";
+// 引入 ezzMock 库
+import { Mock } from "ezzMock";
 
 // 配置参数
 const config = {
@@ -63,11 +63,11 @@ Mock(config)
 
 ### 模拟轮询
 
-`ezMock` 提供了 `Polling` 方法来模拟轮询请求。你可以通过传递一个配置对象来控制轮询的行为。以下是一个简单的例子：
+`ezzMock` 提供了 `Polling` 方法来模拟轮询请求。你可以通过传递一个配置对象来控制轮询的行为。以下是一个简单的例子：
 
 ```javascript
-// 引入 ezMock 库
-import { Polling } from "ezmock";
+// 引入 ezzMock 库
+import { Polling } from "ezzMock";
 
 // 轮询配置
 const pollingConfig = {
@@ -117,7 +117,7 @@ Polling(pollingConfig)
 
 ### HTML 示例
 
-以下是一个完整的 HTML 示例，展示了如何使用 `ezMock` 来生成模拟数据和执行轮询：
+以下是一个完整的 HTML 示例，展示了如何使用 `ezzMock` 来生成模拟数据和执行轮询：
 
 ```html
 <!DOCTYPE html>
@@ -125,19 +125,19 @@ Polling(pollingConfig)
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ezMock Demo</title>
+    <title>ezzMock Demo</title>
   </head>
   <body>
-    <h1>ezMock Demo</h1>
+    <h1>ezzMock Demo</h1>
     <button id="mockButton">Run Mock</button>
     <button id="pollingButton">Run Polling</button>
     <pre id="output"></pre>
 
-    <!-- 引入 ezMock 库 -->
-    <script src="./dist/ezMock.min.js"></script>
+    <!-- 引入 ezzMock 库 -->
+    <script src="./dist/ezzMock.min.js"></script>
     <script>
       document.getElementById("mockButton").addEventListener("click", () => {
-        window.ezMock
+        window.ezzMock
           .Mock({
             isRadomStatus: true,
             onlyReject: false,
@@ -171,7 +171,7 @@ Polling(pollingConfig)
             id: 123123,
           },
         };
-        window.ezMock
+        window.ezzMock
           .Polling(pollingConfig)
           .then((response) => {
             document.getElementById("output").textContent = JSON.stringify(
@@ -199,7 +199,7 @@ Polling(pollingConfig)
 npm run build
 ```
 
-这将生成一个 UMD 格式的 `ezMock.min.js` 文件，并将其放置在 `dist` 目录下。
+这将生成一个 UMD 格式的 `ezzMock.min.js` 文件，并将其放置在 `dist` 目录下。
 
 ### 发布
 
@@ -211,8 +211,8 @@ npm publish
 
 ## 许可证
 
-`ezMock` 采用 MIT 许可证。更多信息请参见 [LICENSE](./LICENSE) 文件。
+`ezzMock` 采用 MIT 许可证。更多信息请参见 [LICENSE](./LICENSE) 文件。
 
 ---
 
-希望这份文档能帮助你快速上手 `ezMock`！如果你有任何问题或建议，请随时提交 Issue 或 Pull Request。
+希望这份文档能帮助你快速上手 `ezzMock`！如果你有任何问题或建议，请随时提交 Issue 或 Pull Request。
