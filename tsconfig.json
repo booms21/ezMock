@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es5", // 确保兼容低版本浏览器
+    "module": "ESNext", // 修改为 ESNext
+    "lib": ["es5", "dom"],
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*"]
+}

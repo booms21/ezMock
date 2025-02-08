@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ezMock Demo</title>
+  </head>
+  <body>
+    <h1>ezMock Demo</h1>
+    <button id="mockButton">Run Mock</button>
+    <button id="pollingButton">Run Polling</button>
+    <pre id="output"></pre>
+
+    <!-- 引入 ezMock 库 -->
+    <script src="./dist/ezMock.min.js"></script>
+    <script>
+      document.getElementById("mockButton").addEventListener("click", () => {
+        window.ezMock
+          .Mock({
+            isRadomStatus: true,
+            onlyReject: false,
+            isObjectArray: true,
+            log: true,
+            objectFieldType: [
+              "string",
+              "url",
+              "image",
+              "time",
+              "color",
+              "number",
+            ],
+          })
+          .then((response) => {
+            // 使用 window.ezMock
+            document.getElementById("output").textContent = JSON.stringify(
+              response,
+              null,
+              2
+            );
+          });
+      });
+
+      document.getElementById("pollingButton").addEventListener("click", () => {
+        const pollingConfig = {
+          pollingInterval: 2, // 2秒
+          maxPollingAttempts: 5, // 最大5次
+          data: {
+            userName: "xxx",
+            age: 12,
+            id: 123123,
+          },
+        };
+        window.ezMock
+          .Polling(pollingConfig)
+          .then((response) => {
+            // 使用 window.ezMock
+            document.getElementById("output").textContent = JSON.stringify(
+              response,
+              null,
+              2
+            );
+          })
+          .catch((error) => {
+            document.getElementById("output").textContent = error.message;
+          });
+      });
+    </script>
+  </body>
+</html>
