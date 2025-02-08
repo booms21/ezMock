@@ -94,16 +94,16 @@ Polling(pollingConfig)
 
 ### Mock 配置
 
-| 属性名             | 类型     | 默认值   | 描述                                                    |
-| ------------------ | -------- | -------- | ------------------------------------------------------- |
-| isObject           | boolean  | false    | 是否返回单个对象                                        |
-| log                | boolean  | false    | 是否打印日志                                            |
-| maxRadomTime       | number   | 3        | 随机延迟的最大时间（秒）                                |
-| onlyReject         | boolean  | false    | 是否只触发 reject                                       |
-| isRadomStatus      | boolean  | true     | 是否随机决定 resolve 或 reject                          |
-| isObjectArray      | boolean  | true     | 是否返回对象数组                                        |
-| objectFieldType    | string[] | 见默认值 | 对象字段类型列表，支持 "string", "number", "boolean" 等 |
-| maxObjectArraySize | number   | 500      | 对象数组的最大长度                                      |
+| 属性名             | 类型     | 默认值   | 描述                                                                                                                                               |
+| ------------------ | -------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| isObject           | boolean  | false    | 是否返回单个对象，比如用于单个表单的数据回显                                                                                                       |
+| log                | boolean  | false    | 是否打印日志                                                                                                                                       |
+| maxRadomTime       | number   | 3        | 随机延迟的最大时间（秒）                                                                                                                           |
+| onlyReject         | boolean  | false    | 是否只触发 reject。不返回数据 只进行报错                                                                                                           |
+| isRadomStatus      | boolean  | true     | 是否随机返回成功的状态或失败状态                                                                                                                   |
+| isObjectArray      | boolean  | true     | 是否返回对象数组 。可用于表格开发的数据回显                                                                                                        |
+| objectFieldType    | string[] | 见默认值 | 对象字段类型列表, 根据类型数据生成对应类型的内容，支持 "string", "number", "boolean" , "object","array","url","image","time","color","base64Image" |
+| maxObjectArraySize | number   | 500      | 当 isObjectArray 为 true 成功时返回的对象数组的长度                                                                                                |
 
 ### Polling 配置
 
@@ -216,3 +216,5 @@ npm publish
 ---
 
 希望这份文档能帮助你快速上手 `ezzMock`！如果你有任何问题或建议，请随时提交 Issue 或 Pull Request。
+
+引用：通义灵码、dummyimage.com
