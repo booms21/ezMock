@@ -24,6 +24,7 @@ class MockInstance implements IMockInstance {
       "array",
       "time",
       "url",
+      "color",
       "image",
     ],
     maxObjectArraySize: 500,
@@ -52,8 +53,7 @@ class MockInstance implements IMockInstance {
     //返回对象形式
     if (this.config.isObject) {
       responseData.data = generateMockObject(this.config, 1);
-    }
-
+    }else
     //返回对象数组形式
     if (this.config.isObjectArray) {
       const size = this.config.isRadomObjectArray ? Math.ceil(Math.random() * this.config.maxObjectArraySize!) : this.config.maxObjectArraySize!
@@ -114,18 +114,18 @@ const Mock = function (config?: IMockInstance["config"]) {
  * @param config 轮询配置对象，包含轮询间隔、最大轮询次数和初始数据
  * @returns 返回一个Promise对象，代表轮询过程
  */
-const Polling = function (config: IPollingConfig) {
+const Polling = function (config?: IPollingConfig) {
   // 成功轮询的响应模板
   const success = {
     code: "ok",
     message: "poll success",
-    data: config.data,
+    data: config?.data,
   }
   // 失败轮询的响应模板
   const failed = {
     code: "500",
     message: "poll failed",
-    data: config.data,
+    data: config?.data,
   }
   return new Promise((resolve, reject) => {
     let attempts = 0;
@@ -164,7 +164,7 @@ const Polling = function (config: IPollingConfig) {
 };
 
 if (typeof window !== "undefined") {
-  (window as any).ezzMock = {
+  (window as any).ezzmock = {
     Mock,
     Polling,
   };

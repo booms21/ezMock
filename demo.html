@@ -12,26 +12,17 @@
     <pre id="output"></pre>
 
     <!-- 引入 ezzMock 库 -->
-    <script src="./dist/ezzMock.min.js"></script>
+    <script src="./dist/ezzmock.min.js"></script>
     <script>
       document.getElementById("mockButton").addEventListener("click", () => {
-        window.ezzMock
+        window.ezzmock
           .Mock({
             isRadomStatus: true,
             onlyReject: false,
-            isObjectArray: true,
             log: true,
-            objectFieldType: [
-              "string",
-              "url",
-              "image",
-              "time",
-              "color",
-              "number",
-            ],
           })
           .then((response) => {
-            // 使用 window.ezzMock
+            // 使用 window.ezzmock
             document.getElementById("output").textContent = JSON.stringify(
               response,
               null,
@@ -44,16 +35,11 @@
         const pollingConfig = {
           pollingInterval: 2, // 2秒
           maxPollingAttempts: 5, // 最大5次
-          data: {
-            userName: "xxx",
-            age: 12,
-            id: 123123,
-          },
         };
-        window.ezzMock
-          .Polling(pollingConfig)
+        window.ezzmock
+          .Polling()
           .then((response) => {
-            // 使用 window.ezzMock
+            // 使用 window.ezzmock
             document.getElementById("output").textContent = JSON.stringify(
               response,
               null,

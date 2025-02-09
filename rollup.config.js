@@ -7,11 +7,11 @@ import { terser } from "rollup-plugin-terser";
  * @type {import('rollup').RollupOptions}
  */
 const config = {
-  input: "src/main/ezzMock.ts",
+  input: "src/main/ezzmock.ts",
   output: {
-    file: "dist/ezzMock.min.js",
+    file: "dist/ezzmock.min.js",
     format: "umd",
-    name: "ezzMock", // 确保名称正确
+    name: "ezzmock", // 确保名称正确
     globals: {},
     sourcemap: true,
     exports: "named", // 确保命名导出

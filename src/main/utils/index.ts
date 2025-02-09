@@ -17,8 +17,6 @@ const generateRandomText = (minLength: number, maxLength: number): string => {
   const simplifiedChineseEnd = 0x9fbf;
   const traditionalChineseStart = 0x4e00;
   const traditionalChineseEnd = 0x9fff;
-  const englishStart = 0x41;
-  const englishEnd = 0x7a;
   const digitStart = 0x30;
   const digitEnd = 0x39;
   const specialSymbols = "!@#$%^&*()_+[]{}|;:,.<>?/~`-=";
@@ -45,10 +43,7 @@ const generateRandomText = (minLength: number, maxLength: number): string => {
         generatedText += String.fromCharCode(randomTraditionalUnicode);
         break;
       case 2: // 英文
-        const randomEnglishUnicode =
-          Math.floor(Math.random() * (englishEnd - englishStart + 1)) +
-          englishStart;
-        generatedText += String.fromCharCode(randomEnglishUnicode);
+        generatedText += Math.random().toString(36).substring(7);
         break;
       case 3: // 数字
         const randomDigitUnicode =
@@ -114,7 +109,7 @@ const generateRandomColor = (): string => {
  * @returns {string} - 生成的时间字符串
  */
 const generateTimeString = (): string => {
-  const randomTime = generateRandomTime(0, 86400000); // 生成0到24小时之间的随机时间戳
+  const randomTime = generateRandomTime(1, Date.now()); // 生成0到24小时之间的随机时间戳
   const now = new Date(randomTime);
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0");
@@ -210,7 +205,7 @@ const generateMockObject = (
   obj.id = id;
   // 每个类型出现一个字段
   if (config.objectFieldType!.includes("string")) {
-    obj.string = generateRandomText(10, 20);
+    obj.string = generateRandomText(1, 200);
   }
 
   if (config.objectFieldType!.includes("url")) {
@@ -226,7 +221,7 @@ const generateMockObject = (
     obj.number =
       Math.random() > 0.5
         ? (Math.random() * 1000000).toFixed(0)
-        : (Math.random() * 100000).toFixed(3);
+        : (Math.random() * 100000).toFixed(2);
     obj.number = +obj.number;
   }
   if (config.objectFieldType!.includes("boolean")) {
@@ -243,18 +238,19 @@ const generateMockObject = (
     obj.image = imageUrl;
   }
   if (config.objectFieldType!.includes("object")) {
-    obj.object = {
-      field1: Math.random().toString(36).substring(7),
-      field2: Math.random() * 100,
-      field3: Math.random() > 0.5,
-    };
+    obj.object = Object.create(null);
+    obj.object.field1 = obj.id;
+    obj.object.field2 = Math.random().toString(36).substring(7);
+     obj.object.field3 = Math.random() > 0.5;
+     obj.object.field4 = "object";
   }
 
   if (config.objectFieldType!.includes("array")) {
     obj.array = [
       Math.random().toString(36).substring(7),
-      Math.random() * 100,
+      obj.id,
       Math.random() > 0.5,
+      "array"
     ];
   }
   if (config.objectFieldType!.includes("base64Image")) {

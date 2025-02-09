@@ -21,8 +21,6 @@ export interface IMockInstance {
     >;
     maxObjectArraySize?: number;
     // 添加轮询相关的配置项
-    pollingInterval?: number; // 轮询间隔时间（毫秒）
-    maxPollingAttempts?: number; // 最大轮询次数
     log?: boolean;
   };
 }
